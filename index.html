@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bull Fit Gym | Train Hard. Live Strong.</title>
+<meta name="description" content="Bull Fit Gym – strength training, cardio, group classes and personal coaching. Book a free trial today.">
+<style>
+  :root{--red:#e63946;--dark:#0e0e10;--card:#18181c;--text:#f2f2f2;--muted:#a0a0a8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--dark);color:var(--text);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:auto;padding:0 20px}
+  section{padding:80px 0}
+  h2{font-size:2rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+  h2 span{color:var(--red)}
+  .sub{color:var(--muted);margin-bottom:40px}
+  .btn{display:inline-block;background:var(--red);color:#fff;padding:13px 30px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:1rem;transition:.2s}
+  .btn:hover{background:#c92c39;transform:translateY(-2px)}
+  .btn.ghost{background:transparent;border:2px solid #fff;margin-left:10px}
+  .btn.ghost:hover{background:#fff;color:#000}
+
+  /* NAV */
+  header{position:fixed;top:0;width:100%;z-index:50;background:rgba(14,14,16,.92);backdrop-filter:blur(6px);border-bottom:1px solid #222}
+  nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+  .logo{font-size:1.5rem;font-weight:900;letter-spacing:1px}
+  .logo span{color:var(--red)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav ul a{font-size:.92rem;color:var(--muted);transition:.2s}
+  nav ul a:hover{color:#fff}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;text-align:center;
+    background:linear-gradient(rgba(0,0,0,.65),rgba(14,14,16,.95)),
+    radial-gradient(circle at 70% 20%,#5a1118 0%,#0e0e10 60%);padding-top:64px}
+  .hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.05;text-transform:uppercase;font-weight:900}
+  .hero h1 span{color:var(--red)}
+  .hero p{max-width:560px;margin:20px auto 32px;color:var(--muted);font-size:1.1rem}
+  .stats{display:flex;justify-content:center;gap:50px;margin-top:60px;flex-wrap:wrap}
+  .stats b{font-size:2rem;color:var(--red);display:block}
+  .stats small{color:var(--muted)}
+
+  /* GRID CARDS */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .card{background:var(--card);border-radius:12px;padding:28px;border:1px solid #232328;transition:.25s}
+  .card:hover{border-color:var(--red);transform:translateY(-5px)}
+  .card .ico{font-size:2.2rem;margin-bottom:12px}
+  .card h3{margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .alt{background:#121215}
+
+  /* PRICING */
+  .price{text-align:center}
+  .price .amt{font-size:2.4rem;font-weight:900;color:var(--red);margin:10px 0}
+  .price .amt small{font-size:.9rem;color:var(--muted);font-weight:400}
+  .price ul{list-style:none;margin:18px 0 24px;text-align:left}
+  .price li{padding:6px 0;border-bottom:1px solid #26262b;color:var(--muted);font-size:.93rem}
+  .price li::before{content:"✔ ";color:var(--red)}
+  .price.pop{border-color:var(--red);position:relative}
+  .price.pop::after{content:"MOST POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:20px}
+
+  /* SCHEDULE */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .tab{background:var(--card);border:1px solid #2a2a30;color:var(--muted);padding:8px 18px;border-radius:30px;cursor:pointer;font-size:.9rem}
+  .tab.active{background:var(--red);color:#fff;border-color:var(--red)}
+  .slot{display:flex;justify-content:space-between;background:var(--card);padding:16px 22px;border-radius:8px;margin-bottom:10px;border-left:4px solid var(--red)}
+  .slot span{color:var(--muted)}
+
+  /* BMI */
+  .bmi{max-width:520px;margin:auto}
+  .bmi-res{margin-top:18px;padding:16px;border-radius:8px;background:#1f1f24;text-align:center;display:none}
+  .bmi-res b{font-size:1.8rem;color:var(--red)}
+
+  /* FORMS */
+  form{max-width:620px;margin:auto;display:grid;gap:14px}
+  label{font-size:.85rem;color:var(--muted)}
+  input,select,textarea{width:100%;padding:13px;border-radius:6px;border:1px solid #2c2c33;background:#1a1a1f;color:#fff;font-size:1rem;font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--red)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .msg{display:none;padding:14px;border-radius:6px;background:#12301c;color:#7ee2a0;text-align:center}
+
+  /* TESTIMONIALS */
+  .quote{font-style:italic}
+  .who{margin-top:14px;font-weight:700;color:var(--red);font-style:normal}
+
+  footer{background:#08080a;padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer .logo{margin-bottom:10px}
+  .to-top{position:fixed;right:20px;bottom:20px;background:var(--red);width:44px;height:44px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:1.2rem;z-index:40}
+
+  @media(max-width:760px){
+    nav ul{position:absolute;top:64px;left:0;width:100%;background:#0e0e10;flex-direction:column;gap:0;display:none;border-bottom:1px solid #222}
+    nav ul.open{display:flex}
+    nav ul li{padding:14px 20px;border-top:1px solid #1c1c20}
+    .burger{display:block}
+    .row{grid-template-columns:1fr}
+    .btn.ghost{margin:12px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#home" class="logo">BULL<span>FIT</span></a>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#pricing">Membership</a></li>
+        <li><a href="#bmi">BMI</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>Train Hard.<br><span>Live Strong.</span></h1>
+    <p>Premium equipment, expert trainers and a community that pushes you to be your best. Your first session is on us.</p>
+    <a href="#contact" class="btn">Book Free Trial</a>
+    <a href="#pricing" class="btn ghost">View Plans</a>
+    <div class="stats">
+      <div><b data-count="1200">0</b><small>Active Members</small></div>
+      <div><b data-count="15">0</b><small>Expert Trainers</small></div>
+      <div><b data-count="40">0</b><small>Weekly Classes</small></div>
+      <div><b data-count="8">0</b><small>Years Strong</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="wrap">
+    <h2>Why <span>Bull Fit</span></h2>
+    <p class="sub">More than a gym – a place where goals turn into results.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🏋️</div><h3>Modern Equipment</h3><p>Free weights, machines and functional zones, maintained daily.</p></div>
+      <div class="card"><div class="ico">🎯</div><h3>Certified Trainers</h3><p>Personalised plans built around your body, goals and schedule.</p></div>
+      <div class="card"><div class="ico">🥗</div><h3>Nutrition Guidance</h3><p>Diet plans that fit your lifestyle and support real progress.</p></div>
+      <div class="card"><div class="ico">🕔</div><h3>Flexible Timings</h3><p>Open early morning to late night, six days a week.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="wrap">
+    <h2>Our <span>Programs</span></h2>
+    <p class="sub">Pick the training style that suits you.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">💪</div><h3>Strength & Muscle</h3><p>Progressive overload programs for size and power.</p></div>
+      <div class="card"><div class="ico">🔥</div><h3>Fat Loss</h3><p>HIIT, cardio and diet coaching to burn fat and keep it off.</p></div>
+      <div class="card"><div class="ico">🧘</div><h3>Yoga & Mobility</h3><p>Improve flexibility, posture and recovery.</p></div>
+      <div class="card"><div class="ico">🥊</div><h3>Boxing & Cardio</h3><p>High-energy group classes to boost stamina.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>CrossFit / Functional</h3><p>Full-body conditioning for everyday performance.</p></div>
+      <div class="card"><div class="ico">🧑‍🏫</div><h3>Personal Training</h3><p>One-on-one coaching with weekly progress tracking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="alt">
+  <div class="wrap">
+    <h2>Class <span>Schedule</span></h2>
+    <p class="sub">Tap a day to see the classes.</p>
+    <div class="tabs" id="tabs"></div>
+    <div id="slots"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <h2>Membership <span>Plans</span></h2>
+    <p class="sub">No hidden fees. Cancel or upgrade anytime.</p>
+    <div class="grid">
+      <div class="card price">
+        <h3>Monthly</h3>
+        <div class="amt">₹1,500<small>/month</small></div>
+        <ul><li>Full gym access</li><li>Locker facility</li><li>Basic workout plan</li></ul>
+        <a href="#contact" class="btn" data-plan="Monthly">Join Now</a>
+      </div>
+      <div class="card price pop">
+        <h3>Quarterly</h3>
+        <div class="amt">₹3,900<small>/3 months</small></div>
+        <ul><li>Everything in Monthly</li><li>Group classes</li><li>Diet consultation</li></ul>
+        <a href="#contact" class="btn" data-plan="Quarterly">Join Now</a>
+      </div>
+      <div class="card price">
+        <h3>Annual</h3>
+        <div class="amt">₹12,000<small>/year</small></div>
+        <ul><li>Everything in Quarterly</li><li>2 PT sessions / month</li><li>Priority booking</li></ul>
+        <a href="#contact" class="btn" data-plan="Annual">Join Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BMI -->
+<section id="bmi" class="alt">
+  <div class="wrap">
+    <h2>BMI <span>Calculator</span></h2>
+    <p class="sub">A quick check to start your fitness journey.</p>
+    <div class="card bmi">
+      <div class="row">
+        <div><label>Weight (kg)</label><input type="number" id="w" placeholder="70" min="1"></div>
+        <div><label>Height (cm)</label><input type="number" id="h" placeholder="170" min="1"></div>
+      </div>
+      <br>
+      <button class="btn" style="width:100%" onclick="calcBMI()">Calculate</button>
+      <div class="bmi-res" id="bmiRes"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="wrap">
+    <h2>Member <span>Stories</span></h2>
+    <p class="sub">Real results from our community.</p>
+    <div class="grid">
+      <div class="card"><p class="quote">“Lost 12 kg in 4 months. The trainers truly care about your progress.”</p><div class="who">— Rahul S.</div></div>
+      <div class="card"><p class="quote">“Clean gym, great equipment and a motivating atmosphere every day.”</p><div class="who">— Priya M.</div></div>
+      <div class="card"><p class="quote">“The strength program took my lifts to the next level.”</p><div class="who">— Arjun K.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <h2>Book Your <span>Free Trial</span></h2>
+    <p class="sub">Fill in the form – we'll get back to you on WhatsApp.</p>
+    <form id="enquiry">
+      <div class="row">
+        <div><label>Full Name *</label><input type="text" id="name" required></div>
+        <div><label>Phone *</label><input type="tel" id="phone" pattern="[0-9]{10}" placeholder="10-digit number" required></div>
+      </div>
+      <div class="row">
+        <div><label>Email</label><input type="email" id="email"></div>
+        <div><label>Interested Plan</label>
+          <select id="plan"><option>Free Trial</option><option>Monthly</option><option>Quarterly</option><option>Annual</option><option>Personal Training</option></select>
+        </div>
+      </div>
+      <div><label>Fitness Goal</label>
+        <select id="goal"><option>Weight Loss</option><option>Muscle Gain</option><option>General Fitness</option><option>Strength</option><option>Flexibility</option></select>
+      </div>
+      <div><label>Message</label><textarea id="message" rows="3"></textarea></div>
+      <button class="btn" type="submit">Send Enquiry</button>
+      <div class="msg" id="ok">✅ Thanks! Opening WhatsApp to send your enquiry…</div>
+    </form>
+    <div style="text-align:center;margin-top:40px;color:var(--muted)">
+      📍 Your Gym Address, City &nbsp;|&nbsp; 📞 <span id="phoneShow"></span> &nbsp;|&nbsp; 🕔 Mon–Sat 5:30 AM – 10:00 PM
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">BULL<span style="color:var(--red)">FIT</span> GYM</div>
+    <p>© <span id="yr"></span> Bull Fit Gym. All rights reserved.</p>
+  </div>
+</footer>
+<a href="#home" class="to-top" id="toTop">↑</a>
+
+<script>
+  /* ====== EDIT THESE ====== */
+  const GYM_WHATSAPP = "919999999999"; // country code + number, no + or spaces
+  const GYM_PHONE_DISPLAY = "+91 99999 99999";
+  /* ======================== */
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('phoneShow').textContent = GYM_PHONE_DISPLAY;
+
+  // Mobile menu
+  const menu = document.getElementById('menu');
+  document.getElementById('burger').onclick = () => menu.classList.toggle('open');
+  menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
+
+  // Counters
+  const counters = document.querySelectorAll('[data-count]');
+  let counted = false;
+  function runCounters(){
+    counters.forEach(c => {
+      const target = +c.dataset.count; let n = 0;
+      const step = Math.max(1, Math.ceil(target/60));
+      const t = setInterval(() => { n += step; if(n >= target){ n = target; clearInterval(t);} c.textContent = n + (target > 100 ? '+' : ''); }, 25);
+    });
+  }
+  window.addEventListener('load', () => { if(!counted){ counted = true; runCounters(); } });
+
+  // Schedule
+  const schedule = {
+    Mon:[["6:00 AM","Strength Training"],["7:30 AM","Yoga"],["6:00 PM","HIIT"],["7:30 PM","Boxing"]],
+    Tue:[["6:00 AM","Cardio Blast"],["7:30 AM","Functional"],["6:00 PM","Strength Training"],["7:30 PM","Zumba"]],
+    Wed:[["6:00 AM","HIIT"],["7:30 AM","Yoga"],["6:00 PM","CrossFit"],["7:30 PM","Core & Abs"]],
+    Thu:[["6:00 AM","Strength Training"],["7:30 AM","Mobility"],["6:00 PM","Boxing"],["7:30 PM","HIIT"]],
+    Fri:[["6:00 AM","Cardio Blast"],["7:30 AM","Functional"],["6:00 PM","CrossFit"],["7:30 PM","Zumba"]],
+    Sat:[["7:00 AM","Full Body Burn"],["8:30 AM","Yoga"],["10:00 AM","Open Gym Challenge"]]
+  };
+  const tabs = document.getElementById('tabs'), slots = document.getElementById('slots');
+  function showDay(d){
+    tabs.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.textContent === d));
+    slots.innerHTML = schedule[d].map(s => `<div class="slot"><b>${s[1]}</b><span>${s[0]}</span></div>`).join('');
+  }
+  Object.keys(schedule).forEach(d => {
+    const b = document.createElement('button');
+    b.className = 'tab'; b.textContent = d; b.onclick = () => showDay(d);
+    tabs.appendChild(b);
+  });
+  showDay(['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()] in schedule
+    ? ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()] : 'Mon');
+
+  // BMI
+  function calcBMI(){
+    const w = +document.getElementById('w').value, h = +document.getElementById('h').value / 100;
+    const out = document.getElementById('bmiRes');
+    out.style.display = 'block';
+    if(!w || !h){ out.innerHTML = 'Please enter valid weight and height.'; return; }
+    const bmi = w / (h*h);
+    const cat = bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal' : bmi < 30 ? 'Overweight' : 'Obese';
+    out.innerHTML = `Your BMI: <b>${bmi.toFixed(1)}</b><br>${cat}`;
+  }
+
+  // Plan buttons preselect plan
+  document.querySelectorAll('[data-plan]').forEach(b => b.addEventListener('click', () => {
+    document.getElementById('plan').value = b.dataset.plan;
+  }));
+
+  // Enquiry form -> WhatsApp
+  document.getElementById('enquiry').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const text = `New Enquiry – Bull Fit Gym\nName: ${v('name')}\nPhone: ${v('phone')}\nEmail: ${v('email') || '-'}\nPlan: ${v('plan')}\nGoal: ${v('goal')}\nMessage: ${v('message') || '-'}`;
+    document.getElementById('ok').style.display = 'block';
+    window.open(`https://wa.me/${GYM_WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+    e.target.reset();
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => toTop.style.display = scrollY > 500 ? 'flex' : 'none');
+</script>
+</body>
+</html>
